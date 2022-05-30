@@ -21,13 +21,19 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // create permissions
         Permission::create(['name' => 'admin_akses']);
+        // general
+        Permission::create(['name' => 'viewAny']);
+        Permission::create(['name' => 'view']);
+        Permission::create(['name' => 'create']);
+        Permission::create(['name' => 'update']);
+        Permission::create(['name' => 'delete']);
 
         // create roles and assign existing permissions
         $role3 = Role::create(['name' => 'super-admin']);
         // gets all permissions via Gate::before rule; see AuthServiceProvider
         
         $role2 = Role::create(['name' => 'admin']);
-        $role2->givePermissionTo('admin_akses');
+        $role2->givePermissionTo(Permission::all());
         
         $role1 = Role::create(['name' => 'operator']);
 
