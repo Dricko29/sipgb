@@ -1,13 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LKD\RtController;
+use App\Http\Controllers\LKD\RwController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\Akses\UserController;
-use App\Http\Controllers\Akses\RoleController;
-use App\Http\Controllers\Akses\PermissionController;
 
+use App\Http\Controllers\LKD\DusunController;
+use App\Http\Controllers\Akses\RoleController;
+use App\Http\Controllers\Akses\UserController;
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Akses\PermissionController;
 use App\Http\Controllers\Operator\OperatorController;
 use App\Http\Controllers\SuperAdmin\SuperAdminController;
 
@@ -70,7 +73,16 @@ Route::middleware(['auth'])->group(function(){
         Route::post('users/{user}/roles', [UserController::class, 'assignRoles'])->name('users.assign.roles');
         Route::delete('users/{user}/roles/{role}', [UserController::class, 'removeRoles'])->name('users.remove.roles');
         
-    }); 
+    });
+    
+    Route::prefix('lembaga-kemasyarakatan')->group(function(){
+        Route::resource('dusun', DusunController::class);
+        Route::resource('rw', RwController::class);
+        Route::resource('rt', RtController::class);
+        Route::post('/sub-rw', [RtController::class,'subRw'])->name('sub.rw');
+        // dropdown dynamic
+    });
+
     
 });
 

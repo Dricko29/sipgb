@@ -33,7 +33,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-12">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="role" class="form-label">Role</label>
                                  <select class="form-select mb-3" name="role">
                                     <option selected>User</option>
                                     @foreach ($roles as $item)
