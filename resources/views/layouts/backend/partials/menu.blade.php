@@ -5,6 +5,8 @@
                                 <i class="ri-dashboard-2-line"></i>Dashboards</span>
                             </a>
                         </li> <!-- end Dashboard Menu -->
+                        @can('admin_akses')
+                            
                         <li class="nav-item">
                             <a class="nav-link menu-link {{ request()->is('*akses*') ? 'collapsed active' : '' }}" 
                             href="#sidebarAkses" 
@@ -29,6 +31,8 @@
                                 </ul>
                             </div>
                         </li>
+                        @endcan
+                        {{-- LKD --}}
                         <li class="nav-item">
                             <a class="nav-link menu-link {{ request()->is('*lembaga-kemasyarakatan*') ? 'collapsed active' : '' }}" 
                             href="#sidebarLKD" 
@@ -49,6 +53,46 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('rt.index') }}" class="nav-link {{ request()->is('*rt*') ? 'active' : '' }}"> Rukun Tetangga </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        {{-- AKP --}}
+                        <li class="nav-item">
+                            <a class="nav-link menu-link {{ request()->is('*atribut-kependudukan*') ? 'collapsed active' : '' }}" 
+                            href="#sidebarAKP" 
+                            data-bs-toggle="collapse" 
+                            role="button" 
+                            aria-expanded="false" 
+                            aria-controls="sidebarAKP">
+                                <i class="ri-book-line"></i> 
+                                <span data-key="t-akses">AKP</span>
+                            </a>
+                            <div class="collapse menu-dropdown {{ request()->is('*atribut-kependudukan*') ? 'show' : '' }}" id="sidebarAKP">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ route('agama.index') }}" class="nav-link {{ request()->is('*agama*') ? 'active' : '' }}"> Agama </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('darah.index') }}" class="nav-link {{ request()->is('*darah*') ? 'active' : '' }}"> Golongan Darah </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('pekerjaan.index') }}" class="nav-link {{ request()->is('*pekerjaan*') ? 'active' : '' }}"> Pekerjaan </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('pendidikan.index') }}" class="nav-link {{ request()->is('*pendidikan*') ? 'active' : '' }}"> Pendidikan </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('hubungan.index') }}" class="nav-link {{ request()->is('*hubungan*') ? 'active' : '' }}"> Hubungan </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('kawin.index') }}" class="nav-link {{ request()->is('*kawin*') ? 'active' : '' }}"> Status Kawin </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('suku.index') }}" class="nav-link {{ request()->is('*suku*') ? 'active' : '' }}"> Suku </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('bahasa.index') }}" class="nav-link {{ request()->is('*bahasa*') ? 'active' : '' }}"> Bahasa </a>
                                     </li>
                                 </ul>
                             </div>

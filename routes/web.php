@@ -1,18 +1,28 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LKD\RtController;
-use App\Http\Controllers\LKD\RwController;
 use App\Http\Controllers\DashboardController;
 
-use App\Http\Controllers\LKD\DusunController;
-use App\Http\Controllers\Akses\RoleController;
-use App\Http\Controllers\Akses\UserController;
-
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Akses\PermissionController;
 use App\Http\Controllers\Operator\OperatorController;
 use App\Http\Controllers\SuperAdmin\SuperAdminController;
+
+use App\Http\Controllers\Akses\RoleController;
+use App\Http\Controllers\Akses\UserController;
+use App\Http\Controllers\Akses\PermissionController;
+
+use App\Http\Controllers\LKD\RtController;
+use App\Http\Controllers\LKD\RwController;
+use App\Http\Controllers\LKD\DusunController;
+
+use App\Http\Controllers\AKP\BahasaController;
+use App\Http\Controllers\AKP\DarahController;
+use App\Http\Controllers\AKP\AgamaController;
+use App\Http\Controllers\AKP\KawinController;
+use App\Http\Controllers\AKP\SukuController;
+use App\Http\Controllers\AKP\HubunganController;
+use App\Http\Controllers\AKP\PekerjaanController;
+use App\Http\Controllers\AKP\PendidikanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,7 +90,17 @@ Route::middleware(['auth'])->group(function(){
         Route::resource('rw', RwController::class);
         Route::resource('rt', RtController::class);
         Route::post('/sub-rw', [RtController::class,'subRw'])->name('sub.rw');
-        // dropdown dynamic
+
+    });
+    Route::prefix('atribut-kependudukan')->group(function(){
+        Route::resource('agama', AgamaController::class);
+        Route::resource('pekerjaan', PekerjaanController::class);
+        Route::resource('pendidikan', PendidikanController::class);
+        Route::resource('hubungan', HubunganController::class);
+        Route::resource('kawin', KawinController::class);
+        Route::resource('suku', SukuController::class);
+        Route::resource('darah', DarahController::class);
+        Route::resource('bahasa', BahasaController::class);
     });
 
     

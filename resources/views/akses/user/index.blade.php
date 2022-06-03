@@ -58,7 +58,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Role</th>
-                                        <th>Action</th>
+                                        <th style="width: 200px">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -87,7 +87,7 @@
                                         <td colspan="4">
                                             <div class="text-center">
                                                 <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                <h5 class="mt-2">Maaf! Tidak Ada Data Yang Ditemukan</h5>
                                 
                                             </div>
                                         </td>
